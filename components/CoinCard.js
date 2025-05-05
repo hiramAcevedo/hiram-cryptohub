@@ -10,7 +10,10 @@ export default function CoinCard({ id, price, onRemove }) {
             {id.charAt(0).toUpperCase() + id.slice(1)}
             </Typography>
             <Typography variant="body2">
-            Precio: ${price[id]?.usd ?? '–'}
+                USD: ${price[id]?.usd?.toLocaleString() ?? '–'}
+            </Typography>
+            <Typography variant="body2">
+                MXN: ${price[id]?.mxn?.toLocaleString() ?? '–'}
             </Typography>
             <IconButton onClick={() => onRemove(id)}>
             <DeleteIcon />
@@ -19,3 +22,4 @@ export default function CoinCard({ id, price, onRemove }) {
         </Card>
     );
     }
+
