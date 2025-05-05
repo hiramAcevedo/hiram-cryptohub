@@ -1,40 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Hiram CryptoHub
 
-## Getting Started
+¡Bienvenido a **Hiram CryptoHub**! 🔥
 
-First, run the development server:
+Una **aplicación web interactiva** creada con **Next.js**, **Zustand** y **Material UI** para que puedas:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* **Monitorear** tus criptomonedas favoritas (bitcóin, ethereum, dogecoin y más).
+* **Cambiar** dinámicamente entre **USD** y **MXN** con un selector global.
+* **Buscar** e **incluir** nuevas criptomonedas mediante un autocompletado con **iconos** oficiales.
+* **Conversor** integrado: selecciona una cripto, escribe un monto y obtén su equivalencia en la divisa activa.
+* **Actualización automática** de precios cada 60 segundos.
+* **Modo oscuro** con acentos **verdes**, diseñado con Material UI.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## 🔧 Tecnologías
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+* **Framework:** Next.js (React)
+* **Estado global:** Zustand
+* **UI & Temas:** Material UI
+* **Peticiones HTTP:** Axios (CoinGecko API)
+* **Despliegue:** Vercel
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Instalación y puesta en marcha
 
-## Learn More
+1. Clona el repositorio:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   git clone https://github.com/TU_USUARIO/crypto-watchlist.git
+   cd crypto-watchlist
+   ```
+2. Instala dependencias:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+   ```bash
+   npm install
+   ```
+3. Ejecuta en modo desarrollo:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm run dev
+   ```
+4. Abre tu navegador en `http://localhost:3000` para ver la app.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📦 Uso en producción
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+1. Genera el build optimizado:
+
+   ```bash
+   npm run build
+   ```
+2. Inicia el servidor:
+
+   ```bash
+   npm start
+   ```
+
+---
+
+## 🌐 Despliegue en Vercel
+
+La aplicación está desplegada y disponible en:
+
+**[]()**
+
+---
+
+## 📝 Autor
+
+**Hiram Agustín Acevedo López**
+Desarrollador Full‑Stack | Apasionado a construir herramientas que mejoren nuestras vidas usando tecnología.
+
+---
+
+¡Gracias por visitar Hiram CryptoHub! 🚀

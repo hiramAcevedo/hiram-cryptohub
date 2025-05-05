@@ -25,7 +25,7 @@ export default function Home() {
   const [currency, setCurrency] = useState('usd'); 
 
   const [convertCoin, setConvertCoin] = useState('');
-  
+
   const [convertAmount, setConvertAmount] = useState('');
 
 
@@ -84,7 +84,7 @@ export default function Home() {
   return (
     <Container sx={{ py: 4 }}>
       <Typography variant="h3" gutterBottom>
-        Crypto Watchlist
+        Hiram CryptoHub
       </Typography>
 
       {/* Autocomplete de búsqueda */}
