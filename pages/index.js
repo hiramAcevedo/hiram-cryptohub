@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {
   Container, Box, Typography,
-  TextField, Button, Autocomplete, Avatar
+  TextField, Button, Autocomplete, Avatar, MenuItem
 } from '@mui/material';
 import { useWatchlist } from '../store/useWatchlist';
 import CoinCard from '../components/CoinCard';
@@ -20,6 +20,14 @@ export default function Home() {
 
   // Posibles errores
   const [error, setError] = useState('');
+
+  // Estado para las divisas
+  const [currency, setCurrency] = useState('usd'); 
+
+  const [convertCoin, setConvertCoin] = useState('');
+  
+  const [convertAmount, setConvertAmount] = useState('');
+
 
   // 1) Cargar lista de monedas al montar
   useEffect(() => {
@@ -107,16 +115,69 @@ export default function Home() {
         </Typography>
       )}
 
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, gap: 2 }}>
+        <TextField
+          select
+          label="Divisa"
+          size="small"
+          value={currency}
+          onChange={(e) => setCurrency(e.target.value)}
+          sx={{ width: 120 }}
+        >
+          <MenuItem value="usd">USD</MenuItem>
+          <MenuItem value="mxn">MXN</MenuItem>
+        </TextField>
+        <Typography variant="body2" color="text.secondary">
+          Elige la divisa para todas las tarjetas
+        </Typography>
+      </Box>
+
       {/* Tarjetas con precios */}
       <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
         {coins.map((id) => (
           <CoinCard
             key={id}
             id={id}
+            currency={currency}
             price={prices}
+            image={coinOptions.find((c) => c.id === id)?.image}
             onRemove={removeCoin}
           />
         ))}
+      </Box>
+
+      <Box sx={{ mt: 4, p: 2, border: 1, borderColor: 'divider', borderRadius: 2 }}>
+        <Typography variant="h5" gutterBottom>
+          Conversor
+        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <Autocomplete
+            sx={{ width: 200 }}
+            options={coins.map((id) => ({
+              id,
+              name: coinOptions.find((c) => c.id === id)?.name || id,
+            }))}
+            getOptionLabel={(opt) => opt.name}
+            onChange={(e, opt) => setConvertCoin(opt?.id || '')}
+            renderInput={(params) => (
+              <TextField {...params} label="Elige moneda" size="small" />
+            )}
+          />
+          <TextField
+            label="Cantidad"
+            type="number"
+            size="small"
+            value={convertAmount}
+            onChange={(e) => setConvertAmount(e.target.value)}
+            sx={{ width: 100 }}
+          />
+          <Typography>
+            ={' '}
+            {convertCoin && convertAmount
+              ? `${(convertAmount * (prices[convertCoin]?.[currency] || 0)).toLocaleString()} ${currency.toUpperCase()}`
+              : '–'}
+          </Typography>
+        </Box>
       </Box>
     </Container>
   );
