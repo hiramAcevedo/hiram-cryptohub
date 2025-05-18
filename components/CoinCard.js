@@ -1,8 +1,11 @@
 // components/CoinCard.js
 import { Card, CardContent, Typography, IconButton, Avatar, Box } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { formatAmount } from '../utils/formatCurrency';
 
 export default function CoinCard({ id, price, currency, image, onRemove }) {
+    const currencySymbol = currency === 'usd' ? '$' : 'MX$';
+    
     return (
         <Card sx={{ minWidth: 200, m: 1 }}>
         <CardContent>
@@ -18,7 +21,7 @@ export default function CoinCard({ id, price, currency, image, onRemove }) {
             </IconButton>
             </Box>
             <Typography variant="body2" sx={{ mt: 1 }}>
-            {currency.toUpperCase()}: ${price[id]?.[currency]?.toLocaleString() ?? '–'}
+            {currency.toUpperCase()}: {price[id]?.[currency] ? formatAmount(price[id][currency], currencySymbol) : '–'}
             </Typography>
         </CardContent>
         </Card>
